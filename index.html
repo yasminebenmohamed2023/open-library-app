@@ -1,5 +1,20 @@
 <!doctype html>
 <html lang="fr" data-beasties-container>
+<invoke name="replace_file_content">
+<parameter name="TargetFile">c:\Users\yasmi\Desktop\Examen Angular\angular-exam\src\index.html</parameter>
+<parameter name="CodeMarkdownLanguage">html</parameter>
+<parameter name="Instruction">Mise à jour de la base href pour le déploiement</parameter>
+<parameter name="ReplacementChunks">
+[
+  {
+    "TargetContent": "<base href="/angular-ihec/">",
+    "ReplacementContent": "<base href="/angular-ihec/">",
+    "AllowMultiple": false
+  }
+]
+</parameter>
+</invoke>
+
 <head>
   <meta charset="utf-8">
   <title>IHEC Carthage - Recherche de Livres</title>
