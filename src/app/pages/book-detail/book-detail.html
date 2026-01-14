@@ -1,0 +1,79 @@
+<div class="container py-4" *ngIf="!isLoading; else loadingTpl">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <a routerLink="/search" class="btn btn-link mb-3 px-0">
+        <i class="bi bi-arrow-left me-1"></i>
+        Retour à la recherche
+      </a>
+
+      <div *ngIf="error; else contentTpl" class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+      </div>
+
+      <ng-template #contentTpl>
+        <div *ngIf="book; else noBookTpl" class="card shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center justify-content-center p-3">
+              <img
+                [src]="book.cover_i
+                  ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-L.jpg'
+                  : 'assets/no-cover.svg'"
+                [alt]="book.title || 'Couverture du livre'"
+                class="img-fluid rounded book-cover"
+              >
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h1 class="h3 card-title mb-3">
+                  {{ book.title || 'Titre inconnu' }}
+                </h1>
+
+                <p class="text-muted mb-2" *ngIf="book.author_name?.length">
+                  <i class="bi bi-person-fill me-1"></i>
+                  {{ book.author_name?.join(', ') }}
+                </p>
+
+                <p class="mb-2" *ngIf="book.first_publish_year">
+                  <i class="bi bi-calendar3 me-1"></i>
+                  Première publication : {{ book.first_publish_year }}
+                </p>
+
+                <p class="mb-3" *ngIf="book.isbn?.length">
+                  <strong>ISBN :</strong> {{ book.isbn?.join(', ') }}
+                </p>
+
+                <div class="mb-3" *ngIf="book.description">
+                  <h2 class="h5">Description</h2>
+                  <p class="mb-0">{{ book.description }}</p>
+                </div>
+
+                <div *ngIf="book.first_sentence?.length">
+                  <h2 class="h6 text-muted">Première phrase</h2>
+                  <p class="fst-italic">
+                    « {{ book.first_sentence?.[0] }} »
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noBookTpl>
+          <div class="alert alert-info">
+            Aucun détail disponible pour ce livre.
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="container py-5 text-center">
+    <div class="spinner-border text-primary mb-3" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+    <p>Chargement des détails du livre...</p>
+  </div>
+</ng-template>
+

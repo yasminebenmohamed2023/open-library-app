@@ -1,0 +1,187 @@
+/* Styles spécifiques pour la recherche de livres - Design IHEC Carthage */
+
+.book-card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+  position: relative;
+}
+
+.book-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #66a3ff, #003366);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 51, 102, 0.2);
+}
+
+.book-card:hover::before {
+  transform: scaleX(1);
+}
+
+.book-cover {
+  max-height: 200px;
+  object-fit: contain;
+  background: linear-gradient(135deg, rgba(102, 163, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+  padding: 12px;
+  border-radius: 0.75rem;
+  transition: transform 0.4s ease;
+  width: 100%;
+}
+
+.book-card:hover .book-cover {
+  transform: scale(1.08);
+}
+
+.book-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-item:hover {
+  transform: translateY(-6px);
+}
+
+.card-title {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #003366;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.book-card:hover .card-title {
+  color: #66a3ff;
+}
+
+.card-text {
+  font-family: 'Roboto', sans-serif;
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text i {
+  color: #66a3ff;
+  margin-right: 0.5rem;
+}
+
+.pagination {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.page-link {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 44px;
+  text-align: center;
+}
+
+.page-link:hover {
+  transform: translateY(-2px);
+}
+
+.page-item.active .page-link {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+  color: #ffffff;
+  border-color: #003366;
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+}
+
+/* Loading spinner amélioré */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.3em solid #66a3ff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation fade-in pour les résultats */
+.book-item {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.book-item:nth-child(1) { animation-delay: 0.1s; }
+.book-item:nth-child(2) { animation-delay: 0.2s; }
+.book-item:nth-child(3) { animation-delay: 0.3s; }
+.book-item:nth-child(4) { animation-delay: 0.4s; }
+.book-item:nth-child(5) { animation-delay: 0.5s; }
+.book-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-cover {
+    max-height: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .book-details {
+    text-align: center;
+  }
+  
+  .book-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+@media (max-width: 576px) {
+  .book-cover {
+    max-height: 120px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 0.85rem;
+  }
+}

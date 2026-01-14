@@ -1,0 +1,343 @@
+/* Styles spécifiques pour l'application IHEC Carthage */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Header Sticky amélioré */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Contenu principal avec effet parallax subtil */
+main {
+  flex: 1;
+  padding: 2rem 0;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
+}
+
+/* Footer riche IHEC Carthage */
+footer.footer {
+  background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+  color: #ffffff;
+  padding: 3rem 0 1.5rem;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+footer.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #66a3ff, #ffffff, #66a3ff);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 0;
+  min-width: 200px;
+}
+
+.footer-section h5 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+}
+
+.footer-section--brand h5 {
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+.footer-section--brand p:first-of-type {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-section--brand p:last-of-type {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-section p,
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+.footer-section--contact p i {
+  margin-right: 0.5rem;
+  color: #66a3ff;
+}
+
+.footer-section a:hover {
+  color: #66a3ff;
+  padding-left: 4px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.footer-section ul li a i {
+  font-size: 1rem;
+}
+
+.footer-section--links ul li a {
+  position: relative;
+  padding-left: 0.25rem;
+}
+
+.footer-section--links ul li a::before {
+  content: "›";
+  position: absolute;
+  left: -0.5rem;
+  color: #66a3ff;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section--links ul li a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Réseaux sociaux */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: #66a3ff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(102, 163, 255, 0.4);
+}
+
+/* Copyright */
+.footer-copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.footer-copyright .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Formulaire de recherche amélioré */
+.search-hero {
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(102, 163, 255, 0.05) 100%);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.08);
+}
+
+.search-hero h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  background: linear-gradient(135deg, #003366 0%, #66a3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.search-hero .lead {
+  color: #666666;
+  font-size: 1.125rem;
+}
+
+/* Cards de livres améliorées */
+.book-card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 51, 102, 0.2);
+}
+
+.book-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card .card-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  color: #003366;
+}
+
+.book-card img {
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Section de résultats */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 51, 102, 0.1);
+}
+
+.results-header h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #003366;
+  margin: 0;
+}
+
+/* Loading state amélioré */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 400px;
+}
+
+.loading-container .spinner-border {
+  margin-bottom: 1.5rem;
+}
+
+.loading-container p {
+  color: #666666;
+  font-size: 1.125rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: #66a3ff;
+  opacity: 0.5;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+  font-family: 'Merriweather', serif;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+  .footer-content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .search-hero {
+    padding: 1.5rem;
+  }
+  
+  .search-hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* Smooth scroll pour navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Amélioration des transitions de page */
+router-outlet + * {
+  animation: fadeIn 0.4s ease-out;
+}
